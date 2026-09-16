@@ -294,6 +294,7 @@ function isUnityReceipt(receipt) {
         if (
             receipt.Store === constants.UNITY.GOOGLE ||
             receipt.Store === constants.UNITY.APPLE ||
+            receipt.Store === constants.UNITY.APPLE_MAC ||
             receipt.Store === constants.UNITY.AMAZON
         ) {
             return true;
@@ -311,6 +312,7 @@ function getServiceFromUnityReceipt(receipt) {
         case constants.UNITY.GOOGLE:
             return module.exports.GOOGLE;
         case constants.UNITY.APPLE:
+        case constants.UNITY.APPLE_MAC:
             return module.exports.APPLE;
         case constants.UNITY.AMAZON:
             return module.exports.AMAZON;
@@ -354,6 +356,7 @@ function parseUnityReceipt(receipt) {
             }
             return receipt.Payload;
         case constants.UNITY.APPLE:
+        case constants.UNITY.APPLE_MAC:
             return receipt.Payload;
     }
 }
